@@ -1,0 +1,114 @@
+/* === Background and layout === */
+body {
+  background: radial-gradient(circle at center, #0f2027, #203a43, #2c5364);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  color: #fff;
+  animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+}
+
+#status {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #ffeb3b;
+}
+
+/* === Game Board === */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(3, 120px);
+  gap: 10px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.cell {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid #00eaff;
+  border-radius: 15px;
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #00eaff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #00eaff;
+}
+
+.cell:hover {
+  transform: scale(1.05);
+  background: rgba(0, 234, 255, 0.1);
+  box-shadow: 0 0 20px #00eaff;
+}
+
+/* === Animation for appearing === */
+@keyframes pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.cell.played {
+  animation: pop 0.3s ease;
+}
+
+/* === Reset Button === */
+button {
+  margin-top: 25px;
+  padding: 10px 25px;
+  background: linear-gradient(45deg, #00eaff, #00ffc3);
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #0f2027;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #00ffc3;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #00ffc3, #00eaff);
+  box-shadow: 0 0 20px #00ffc3;
+  transform: scale(1.05);
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+  .board {
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(3, 90px);
+    gap: 8px;
+  }
+
+  .cell {
+    font-size: 2.2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* === Subtle fade-in === */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
